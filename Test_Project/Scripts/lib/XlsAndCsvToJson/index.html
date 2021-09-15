@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="vendor/jquery.min.js"></script>	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// oFileIn = document.getElementById('file');
+		 //    if(oFileIn.addEventListener) {
+		 //        oFileIn.addEventListener('change', filePicked, false);
+		 //    }
+		 	$('#sub').click(function(){
+		 		exXlsOrCsvToJson('#file', 'ArrayName', 'MathodName');		 		
+		 	});		 	
+		});
+		var my = [];
+		my['test'] = function(data){
+			console.log(data);
+		};					
+	</script>
+
+	<script src="js/papaparse.min.js"></script>
+	<script src="js/shim.js"></script>
+    <script src="js/cpexcel.js"></script>
+    <script src="js/xls.js"></script>
+    <script src="js/jszip.js"></script>
+    <script src="js/xlsx.js"></script>
+    <script src="js/dropsheet.js"></script>
+    <script src="js/main.js"></script>
+    <script src="vendor/spin.js"></script>
+    <script src="exXslOrCsvToJson.js"></script>
+</head>
+<body>
+<input type="file" id="file">
+<input type="button" id="sub" value="sub">
+<div id="my_file_output"></div>
+</body>
+</html>

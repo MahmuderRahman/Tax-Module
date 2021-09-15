@@ -1,0 +1,225 @@
+﻿.required {
+    color: red;
+    font-weight: bold;
+}
+
+ul, #formUl {
+    list-style-type: none;
+}
+
+#taskFormDiv {
+    margin-bottom: 100px;
+}
+
+    #taskFormDiv .input-sm {
+        height: 26px;
+    }
+
+.fixedHeightArea {
+    height: 124px !important;
+}
+
+chzn-container-single .chzn-single {
+    height: 25px;
+    line-height: 25px;
+}
+
+.under-line {
+    margin-top: 0;
+    margin-bottom: 0px;
+    overflow: hidden;
+    border-color: #e3dfde;
+}
+
+th, td {
+    vertical-align: middle;
+}
+
+th {
+    font-weight: 600;
+    font-size: 85%;
+}
+
+.linkbtn {
+    text-decoration: none !important;
+    float: right;
+    color: #4169e1;
+    cursor: pointer;
+}
+
+.hwbProducts, .conAddress {
+    text-decoration: none !important;
+    color: #4169e1;
+    cursor: pointer !important;
+}
+
+    .hwbProducts:hover {
+        text-decoration: underline !important;
+    }
+
+    .conAddress:hover {
+        text-decoration: underline !important;
+    }
+
+.removeIcon {
+    color: #FF8386;
+    padding: 5px 0 8px 8px;
+    cursor: pointer;
+}
+
+.hwbTotalChanger {
+    text-align: right;
+}
+
+.sectionRow {
+    margin-bottom: 0px;
+}
+
+.groupTile {
+    color: #ff6600;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 0
+}
+
+small {
+    font-weight: 600;
+}
+
+.chosen-container-single .chosen-single {
+    height: 26px !important;
+    line-height: 22px !important;
+}
+
+    .chosen-container-single .chosen-single div b {
+        background: url('../../Views/../Scripts/lib/SelectChosen/css/chosen-sprite.png') no-repeat 0px 2px !important;
+    }
+
+.plusIcon {
+    color: #1972ce;
+    font-size: 1.5em;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+.minusIcon {
+    color: #ef5353;
+    font-size: 1.5em;
+    padding-top: 3px;
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+.editIcon {
+    margin-left: 7px;
+    font-weight: bold;
+    color: #0083bd;
+    cursor: pointer;
+}
+
+.deleteIcon {
+    font-weight: bold;
+    color: red;
+    margin-left: 7px;
+    cursor: pointer;
+}
+
+.addressAssignIcon {
+    font-weight: bold;
+    color: #006400;
+    cursor: pointer;
+}
+
+.required-field {
+    color: red;
+    font-size: 15px;
+}
+
+.pad-left-0 {
+    padding-left: 0;
+}
+
+.row-selected {
+    background-color: #b0bed9 !important;
+}
+
+#addressBookTable_filter {
+    margin-bottom: -5px !important;
+}
+
+#submitBtnContainer {
+    padding-right: 0;
+    padding-top: 30px;
+    text-align: center;
+}
+
+#btnSubmitTask {
+    width: 160px;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+}
+
+.btn-w65 {
+    width: 65px;
+}
+
+.rqd::after {
+    content: "*";
+    color: red;
+    font-weight: bold
+}
+
+.input-group-center {
+    display: flex;
+    -webkit-justify-content: center;
+}
+
+.btnUnsavedChange {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.downloadIcon {
+    color: green;
+    padding-right: 5px;
+    cursor: pointer;
+    font-size: 1.3em;
+}
+
+.viewIcon {
+    color: #7b68ee;
+    padding-right: 5px;
+    cursor: pointer;
+    font-size: 1.3em;
+}
+
+.maxWidth35px {
+    max-width: 35px;
+}
+
+.maxWidth60px {
+    max-width: 60px;
+}
+
+.custom-file-upload {
+    border: 1px solid black;
+    display: inline-block;
+    padding: 2px 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.fileSelected{
+    background-color: #28a745;
+    color: white;
+}
+
+.spnDeleteProductImage {
+    cursor: pointer;
+}
+
+.exportHwb {
+    margin-bottom: 5px; 
+}
