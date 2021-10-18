@@ -25,5 +25,11 @@ namespace Test_Project.Models
         public DateTime? CreatedDate { get; set; }
         public int? ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
+        public List<TaxEmployeeInvestment> TaxEmployeeInvestments { get; set; }
+
+        public TaxInvestmentRebateArea()
+        {
+            TaxEmployeeInvestments = new List<TaxEmployeeInvestment>();
+        }
     }
 }

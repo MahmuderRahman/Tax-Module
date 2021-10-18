@@ -1,0 +1,95 @@
+﻿@model Test_Project.Models.TaxEmployeeAsset
+@{
+    ViewBag.Title = "TaxEmployeeAsset";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+@Styles.Render("~/CustomCSS/DateTimePicker")
+@Scripts.Render("~/bundles/DateTimePicker")
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/jquery")
+@Styles.Render("~/CustomCSS/DataTable")
+
+<style>
+    .InputText {
+        font-size: 30px;
+    }
+
+    .totalAmount {
+        padding: 6px 8px;
+        border: 1px solid black;
+        font-size: 18px;
+        height: 30px;
+        width: 150px;
+    }
+
+    .form-inline .form-control {
+        width: 100%;
+        margin: 0;
+    }
+
+    .button1 {
+        padding: 15px;
+    }
+
+    form .form-control {
+        height: 30px !important;
+    }
+</style>
+
+<div class="row head">
+    @*<div class="col-md-4 col-md-offset-4 well" style="text-align: center; padding: 0">Area Wise Minimum Tax </div>*@
+    <div class="col-md-4 col-md-offset-4 page-title-global" style="text-align: center;padding: 50px">Tax Employee Asset</div>
+</div>
+
+@*Show and Hide Columns *@
+<div class="row mt-3">
+
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @Class = "form-horizontal", @id = "taxEmployeeAssetForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            
+            <div class="col-md-6">
+                <div class="form-group button1">
+                    @Html.DropDownListFor(model => model.HrmFinancialYearId, new SelectList("", ""), new { @class = "form-control", @id = "HrmFinancialYearId" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group button1">
+                    <div class="input-group input-group-sm">
+
+                        @Html.DropDownListFor(model => model.HrmEmployeeId, new SelectList("", ""), new { @class = "form-control", @id = "HrmEmployeeId" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="button" id="findBtn"><i class="fa fa-refresh"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        }
+    
+    
+    <div class="col-md-12">
+        <table id="tableElement" class="table table-condensed table-bordered table-hover table-responsive" style="width: 100%"></table>
+    </div>
+
+    <div class="pull-right" style="padding: 15px">
+
+        Total Amount: <label class="text-right totalAmount" id="TotalAmount">0.00</label>
+    </div>
+
+    <div class="col-md-12 mt-5">
+        <div class="pull-right">
+            <button id="saveBtn" type="button" value="" class="btn btn-success">Save change</button>
+        </div>
+    </div>
+
+</div>
+
+@Scripts.Render("~/bundles/DateTimePicker")
+@Scripts.Render("~/bundles/DataTable")
+
+<script src="~/Scripts/Custom/TaxEmployeeAsset.js"></script>

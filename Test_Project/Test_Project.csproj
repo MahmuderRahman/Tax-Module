@@ -158,13 +158,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AreaWiseMinimumTaxController.cs" />
     <Compile Include="Controllers\DropdownController.cs" />
+    <Compile Include="Controllers\Gateway\AreaWiseMinimumTaxGateway.cs" />
+    <Compile Include="Controllers\Gateway\TaxEmployeeAssetGateway.cs" />
+    <Compile Include="Controllers\Gateway\TaxEmployeeInvestmentGateway.cs" />
+    <Compile Include="Controllers\Gateway\TaxSlabGateway.cs" />
+    <Compile Include="Controllers\Gateway\TaxSlabTypeGateway.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvestmentRebateSlabController.cs" />
     <Compile Include="Controllers\TaxAreaController.cs" />
     <Compile Include="Controllers\TaxAssetTypeController.cs" />
+    <Compile Include="Controllers\TaxEmployeeAssetController.cs" />
+    <Compile Include="Controllers\TaxEmployeeInvestmentController.cs" />
     <Compile Include="Controllers\TaxInvestmentRebateAreaController.cs" />
     <Compile Include="Controllers\TaxServiceChargeSlabController.cs" />
+    <Compile Include="Controllers\TaxSlabController.cs" />
+    <Compile Include="Controllers\TaxSlabTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -188,15 +198,69 @@
     <Compile Include="Migrations\202109150254393_Refactor tax area.Designer.cs">
       <DependentUpon>202109150254393_Refactor tax area.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109150550246_Add area wise minimum tax.cs" />
+    <Compile Include="Migrations\202109150550246_Add area wise minimum tax.Designer.cs">
+      <DependentUpon>202109150550246_Add area wise minimum tax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109150815394_Modify area wise minimum tax.cs" />
+    <Compile Include="Migrations\202109150815394_Modify area wise minimum tax.Designer.cs">
+      <DependentUpon>202109150815394_Modify area wise minimum tax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109150821455_Modify area wise tax.cs" />
+    <Compile Include="Migrations\202109150821455_Modify area wise tax.Designer.cs">
+      <DependentUpon>202109150821455_Modify area wise tax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109160337515_Add tax slab type.cs" />
+    <Compile Include="Migrations\202109160337515_Add tax slab type.Designer.cs">
+      <DependentUpon>202109160337515_Add tax slab type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109160455259_Refactor Tax slab type.cs" />
+    <Compile Include="Migrations\202109160455259_Refactor Tax slab type.Designer.cs">
+      <DependentUpon>202109160455259_Refactor Tax slab type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109160703371_Add Tax slab.cs" />
+    <Compile Include="Migrations\202109160703371_Add Tax slab.Designer.cs">
+      <DependentUpon>202109160703371_Add Tax slab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109160940250_Refactor tax slab and type.cs" />
+    <Compile Include="Migrations\202109160940250_Refactor tax slab and type.Designer.cs">
+      <DependentUpon>202109160940250_Refactor tax slab and type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109200436154_Add employee.cs" />
+    <Compile Include="Migrations\202109200436154_Add employee.Designer.cs">
+      <DependentUpon>202109200436154_Add employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109200507004_Add tax employee asset.cs" />
+    <Compile Include="Migrations\202109200507004_Add tax employee asset.Designer.cs">
+      <DependentUpon>202109200507004_Add tax employee asset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109230513112_Modify tax slab table column order.cs" />
+    <Compile Include="Migrations\202109230513112_Modify tax slab table column order.Designer.cs">
+      <DependentUpon>202109230513112_Modify tax slab table column order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109230957028_Modify tax employee asset column.cs" />
+    <Compile Include="Migrations\202109230957028_Modify tax employee asset column.Designer.cs">
+      <DependentUpon>202109230957028_Modify tax employee asset column.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109280500389_Add tax employee investment.cs" />
+    <Compile Include="Migrations\202109280500389_Add tax employee investment.Designer.cs">
+      <DependentUpon>202109280500389_Add tax employee investment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AreaWiseMinimumTax.cs" />
     <Compile Include="Models\ConnectionDatabase.cs" />
     <Compile Include="Models\Dtos\ResponseDto.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\HrmFinancialYear.cs" />
+    <Compile Include="Models\TaxEmployeeAsset.cs" />
+    <Compile Include="Models\TaxEmployeeInvestment.cs" />
     <Compile Include="Models\TaxInvestmentRebateSlab.cs" />
     <Compile Include="Models\TaxServiceChargeSlab.cs" />
     <Compile Include="Models\TaxArea.cs" />
     <Compile Include="Models\TaxAssetType.cs" />
     <Compile Include="Models\TaxInvestmentRebateArea.cs" />
+    <Compile Include="Models\TaxSlab.cs" />
+    <Compile Include="Models\TaxSlabType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -278,12 +342,6 @@
     <Content Include="Scripts\AjaxManager.js" />
     <Content Include="Scripts\bootstrap-notify.js" />
     <Content Include="Scripts\bootstrap-select.js" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap.esm.js" />
-    <Content Include="Scripts\bootstrap.esm.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -310,38 +368,49 @@
     <Content Include="Content\fonts\vssver.scc" />
     <Content Include="Content\lib\Notification\desktop.ini" />
     <Content Include="Content\lib\Notification\vssver.scc" />
-    <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
-    <Content Include="Content\bootstrap-utilities.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.rtl.css.map" />
-    <Content Include="Content\bootstrap.rtl.min.css.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.esm.js.map" />
-    <Content Include="Scripts\bootstrap.esm.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Custom\AreaWiseMinimumTax.js" />
     <Content Include="Scripts\Custom\InvestmentRebateSlab.js" />
     <Content Include="Scripts\Custom\TaxArea.js" />
     <Content Include="Scripts\Custom\TaxAssetType.js" />
+    <Content Include="Scripts\Custom\TaxEmployeeAsset.js" />
+    <Content Include="Scripts\Custom\TaxEmployeeInvestment.js" />
     <Content Include="Scripts\Custom\TaxInvestmentRebateArea.js" />
     <Content Include="Scripts\Custom\TaxServiceChargeSlab.js" />
+    <Content Include="Scripts\Custom\TaxSlab.js" />
+    <Content Include="Scripts\Custom\TaxSlabType.js" />
     <Content Include="Scripts\dateFormatter.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -1269,9 +1338,15 @@
     <Content Include="Views\InvestmentRebateSlab\InvestmentRebateSlab.cshtml" />
     <Content Include="Views\TaxAssetType\TaxAssetType.cshtml" />
     <Content Include="Views\TaxServiceChargeSlab\TaxServiceChargeSlab.cshtml" />
+    <Content Include="Views\AreaWiseMinimumTax\AreaWiseMinimumTax.cshtml" />
+    <Content Include="Views\TaxSlabType\TaxSlabType.cshtml" />
+    <Content Include="Views\TaxSlab\TaxSlab.cshtml" />
+    <Content Include="Views\TaxEmployeeAsset\TaxEmployeeAsset.cshtml" />
+    <Content Include="Views\TaxEmployeeInvestment\TaxEmployeeInvestment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\ViewModels\" />
     <Folder Include="Views\Dropdown\" />
   </ItemGroup>
   <ItemGroup>
@@ -1296,6 +1371,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109150254393_Refactor tax area.resx">
       <DependentUpon>202109150254393_Refactor tax area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109150550246_Add area wise minimum tax.resx">
+      <DependentUpon>202109150550246_Add area wise minimum tax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109150815394_Modify area wise minimum tax.resx">
+      <DependentUpon>202109150815394_Modify area wise minimum tax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109150821455_Modify area wise tax.resx">
+      <DependentUpon>202109150821455_Modify area wise tax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109160337515_Add tax slab type.resx">
+      <DependentUpon>202109160337515_Add tax slab type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109160455259_Refactor Tax slab type.resx">
+      <DependentUpon>202109160455259_Refactor Tax slab type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109160703371_Add Tax slab.resx">
+      <DependentUpon>202109160703371_Add Tax slab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109160940250_Refactor tax slab and type.resx">
+      <DependentUpon>202109160940250_Refactor tax slab and type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109200436154_Add employee.resx">
+      <DependentUpon>202109200436154_Add employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109200507004_Add tax employee asset.resx">
+      <DependentUpon>202109200507004_Add tax employee asset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109230513112_Modify tax slab table column order.resx">
+      <DependentUpon>202109230513112_Modify tax slab table column order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109230957028_Modify tax employee asset column.resx">
+      <DependentUpon>202109230957028_Modify tax employee asset column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109280500389_Add tax employee investment.resx">
+      <DependentUpon>202109280500389_Add tax employee investment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

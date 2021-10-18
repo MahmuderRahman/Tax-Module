@@ -1,0 +1,206 @@
+﻿@model Test_Project.Models.TaxSlab
+@{
+    ViewBag.Title = "TaxSlab";
+}
+
+@Styles.Render("~/CustomCSS/DateTimePicker")
+@Scripts.Render("~/bundles/DateTimePicker")
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/jquery")
+@Styles.Render("~/CustomCSS/DataTable")
+
+<style>
+    .InputText {
+        float: left;
+        width: 95%;
+    }
+    .InputText1 {
+        float: left;
+        width: 90%;
+    }
+    .circlePlus {
+        padding: 6px;
+        border-radius: 80%;
+        background-color: #ff1493;
+        color: white;
+        margin-left: 15px;
+
+    }
+    .taxSlab {
+        float: left;
+        width: 85%;
+    }
+    .required {
+        color: red;
+    }
+    .spnDataTableEdit {
+        font-weight: bold;
+        color: #0083bd;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .spnDataTableDelete {
+        font-weight: bold;
+        color: red;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .addSpan {
+        float: right;
+        margin-top: 7px;
+        margin-left: 5px;
+        color: #17a217;
+        cursor: pointer;
+    }
+
+    .minusSpan {
+        float: right;
+        margin-top: 7px;
+        margin-left: 5px;
+        color: #ff0000;
+        cursor: pointer;
+    }
+
+    .planingDetailInputGroupCls {
+        width: 95%;
+        float: left;
+    }
+</style>
+
+<div class="row head">
+    @*<div class="col-md-4 col-md-offset-4 well" style="text-align: center; padding: 0">Area Wise Minimum Tax </div>*@
+    <div class="col-md-4 col-md-offset-4 page-title-global" style="text-align: center;padding: 50px">Tax Slab</div>
+</div>
+
+@*Show and Hide Columns *@
+<div class="row">
+    <div class="modal fade" id="frmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Tax Slab</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @Class = "form-horizontal", @id = "taxSlabForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            <label class="col-md-4">Slab Type<span class="required">*</span></label>
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(model => model.TaxSlabTypeId, new SelectList("", ""), new { @class = "form-control taxSlab", @id = "TaxSlabTypeId" })
+                                <span class="taxSlabTypeAdd circlePlus"><i class="glyphicon glyphicon-plus" style="color: white"></i></span>
+                               
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4">Limit Above</label>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.LimitAbove, new { Style = "", @class = "form-control InputText", @autocomplete = "off", @id = "LimitAbove", placeholder = "Limit Above" })
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label class="col-md-4">Tax</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.TaxRate, new { Style = "", @class = "form-control InputText", @autocomplete = "off", @id = "TaxRate", placeholder = "Tax Rate %" })
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.TaxAmount, new { Style = "", @class = "form-control InputText1 ", @autocomplete = "off", @id = "TaxAmount", placeholder = "Tax Amount" })
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label class="col-md-4">Order</label>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.Order, new { Style = "", @class = "form-control InputText", @autocomplete = "off", @id = "Order", placeholder = "Order/Serial no" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4">Is Active</label>
+                            <div class="col-md-1">@Html.CheckBoxFor(m => m.IsActive, new { Style = "", @class = "", @id = "IsActive" })</div>
+                        </div>
+                        @*<div class="form-group">
+                                <label class="col-md-4"></label>
+                                <div class="col-md-8">
+                                    @Html.CheckBoxFor(m => m.IsActive, new { Style = "", @class = "form-control InputText" })
+                                    <div class="col-md-11">
+                                        <label> IsActive</label>
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div class="form-group">
+                            <label class="col-md-4">Year<span class="required">*</span></label>
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(model => model.ValidFromHrmFinancialYearId, new SelectList("", ""), new { @class = "form-control InputText", @id = "ValidFromHrmFinancialYearId" })
+                                
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="modal-footer">
+
+
+                    <input id="editBtn" type="button" value="Edit" class="btn_custom btn_custom-warning" />
+
+                    <input id="saveBtn" type="button" value="Save" class="btn_custom btn_custom-success" />
+
+                    <input id="deleteBtn" style="display: none;" type="button" value="Delete" class="btn_custom btn_custom-danger" />
+
+                    <input id="btnClear" style="display: none;" type="button" value="Clear" class="btn_custom btn_custom-primary" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* Show and Hide Columns  *@
+
+@*Show and Hide Columns *@
+<div class="row">
+    <div class="modal fade" id="frmModalType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Tax Slab Type</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { @Class = "form-horizontal", @id = "taxSlabTypeForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            <label class="col-md-4">Name</label>
+                            <div class="col-md-8">
+                                @Html.TextBox("Name", null, new { Style = "", @class = "form-control InputText", @autocomplete = "off", @id = "Name", placeholder = "Name" })
+                                <span class="required">*</span>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            <label class="col-md-4">Remarks</label>
+                            <div class="col-md-8">
+                                @Html.TextBox("Remarks", null, new { Style = "", @class = "form-control InputText", @id = "Remarks", placeholder = "Remarks" })
+                            </div>
+                        </div>*@
+                    }
+                </div>
+                <div class="modal-footer">
+                    <input id="saveBtnSlabType" type="button" value="Save" class="btn_custom btn_custom-success" />
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* Show and Hide Columns  *@
+
+<div class="col-md-12 margin-top10">
+    <table id="tableElement" class="table table-bordered table-condensed table-hover table-responsive" style="width: 100%;"></table>
+</div>
+
+@Scripts.Render("~/bundles/DateTimePicker")
+@Scripts.Render("~/bundles/DataTable")
+<script src="~/Scripts/Custom/TaxSlab.js"></script>

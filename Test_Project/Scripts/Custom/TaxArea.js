@@ -214,6 +214,7 @@ var Manager = {
     },
     Reset: function () {
         $("#taxAreaFormId")[0].reset();
+
     }
 
 }

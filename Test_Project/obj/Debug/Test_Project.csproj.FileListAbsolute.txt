@@ -1,4 +1,3 @@
-E:\Test_Project\Test_Project\obj\Debug\Test_Project.csprojResolveAssemblyReference.cache
 E:\Test_Project\Test_Project\bin\ApplicationInsights.config
 E:\Test_Project\Test_Project\bin\roslyn\csc.exe
 E:\Test_Project\Test_Project\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -61,3 +60,16 @@ E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.addmodelscolumnle
 E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Addtaxassettypemodel.resources
 E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Addservicechargeslab.resources
 E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Refactortaxarea.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Addareawiseminimumtax.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Modifyareawiseminimumtax.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Modifyareawisetax.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Addtaxslabtype.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.RefactorTaxslabtype.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.AddTaxslab.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Refactortaxslabandtype.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Addemployee.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Addtaxemployeeasset.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Modifytaxslabtablecolumnorder.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Modifytaxemployeeassetcolumn.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.Migrations.Addtaxemployeeinvestment.resources
+E:\Test_Project\Test_Project\obj\Debug\Test_Project.csprojResolveAssemblyReference.cache
